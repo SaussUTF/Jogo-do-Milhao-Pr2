@@ -1,0 +1,7 @@
+build/
+raylib/
+*.o
+programa
+programa.exe
+*_backup.c
+.vscode/
