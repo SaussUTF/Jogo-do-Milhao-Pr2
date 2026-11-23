@@ -674,7 +674,7 @@ void DigitarPergunta(char *destino, int TAMMAX){
         
         //Não corta uma caracter acentuado no meio
         while (len > 0 && (((unsigned char)destino[len])& 0xC0) == 0x80){
-            len++;
+            len--;
         }
         destino[len] = '\0';
     }
