@@ -18,7 +18,7 @@ else
     LDLIBS  = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 endif
 
-SRC = show.c arquivo.c perguntas.c jogo.c 
+SRC = main.c arquivo.c perguntas.c jogo.c 
 OBJ = $(SRC:.c=.o)
 
 all: $(BINNAME)
