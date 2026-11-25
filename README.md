@@ -1,4 +1,4 @@
-# Jogo do Milhão (interface gráfica)
+# Jogo do Milhão 
 GRUPO:
 
 
