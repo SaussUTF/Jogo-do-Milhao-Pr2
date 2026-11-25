@@ -1,6 +1,8 @@
 # Jogo do Milhão (interface gráfica)
 GRUPO: ENZO ANDRE
+
        NATHAN SAUSS
+
        LUCAS REZENDE
 
 
