@@ -1,5 +1,6 @@
 # Jogo do Milhão (interface gráfica)
-GRUPO: ENZO ANDRE
+GRUPO: 
+       ENZO ANDRE
 
        NATHAN SAUSS
 
