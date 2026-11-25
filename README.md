@@ -1,4 +1,8 @@
 # Jogo do Milhão (interface gráfica)
+GRUPO: ENZO ANDRE
+       NATHAN SAUSS
+       LUCAS REZENDE
+
 
 Projeto em C com interface gráfica usando Raylib. O código principal da interface está em `jogo-grafico/show.c`.
 
