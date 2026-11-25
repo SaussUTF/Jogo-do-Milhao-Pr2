@@ -1,44 +1,29 @@
-# Makefile - Quiz (C99)
-# Uso: make | make run | make debug | make valgrind | make clean
-
-CC      = gcc
-CFLAGS  = -Wall -Wextra -std=c99 -g
-LDLIBS  = -lraylib -lm
-BINNAME = programa
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c99 -g
+SRC = show.c arquivo.c perguntas.c jogo.c
+OBJ = $(SRC:.c=.o)
+BIN = jogo-milhao
 
 ifeq ($(OS),Windows_NT)
-    BIN     = $(BINNAME).exe
-    RM      = del /Q /F
-    LDFLAGS = -L./libwin
-    LDLIBS  = -lraylib -lopengl32 -lgdi32 -lwinmm -lm
+  LDLIBS = -lraylib -lopengl32 -lgdi32 -lwinmm -lm
+  RM = del /Q /F
 else
-    BIN     = ./$(BINNAME)
-    RM      = rm -f
-    LDFLAGS = -L./lib
-    LDLIBS  = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+  LDLIBS = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+  RM = rm -f
 endif
 
-SRC = show.c arquivo.c perguntas.c jogo.c 
-OBJ = $(SRC:.c=.o)
+all: $(BIN)
 
-all: $(BINNAME)
-
-$(BINNAME): $(OBJ)
+$(BIN): $(OBJ)
 	$(CC) $(OBJ) -o $@ $(LDLIBS)
 
 %.o: %.c quiz.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 run: all
-	$(BIN)
-
-debug: all
-	gdb $(BIN)
-
-valgrind: all
-	valgrind --tool=memcheck --leak-check=full --track-origins=yes --show-leak-kinds=all $(BIN)
+	./$(BIN)
 
 clean:
-	$(RM) $(OBJ) $(BINNAME) $(BINNAME).exe 
+	$(RM) $(OBJ) $(BIN) $(BIN).exe perguntas.bin perguntas_exportadas.csv
 
-.PHONY: all run debug valgrind clean
+.PHONY: all run clean
